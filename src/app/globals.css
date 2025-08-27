@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import Vayo Vault Design System */
-@import '../styles/colors.css';
-@import '../styles/typography.css';
-@import '../styles/spacing.css';
-@import '../styles/animations.css';
+/* Basic styles for MVP */
 
 @layer base {
   :root {

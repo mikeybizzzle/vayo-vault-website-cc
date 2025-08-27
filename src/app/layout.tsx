@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Cal_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { Providers } from './providers'
 import './globals.css'
@@ -10,11 +10,6 @@ const inter = Inter({
   display: 'swap',
 })
 
-const calSans = Cal_Sans({
-  subsets: ['latin'],
-  variable: '--font-cal-sans',
-  display: 'swap',
-})
 
 export const metadata: Metadata = {
   title: {
@@ -87,7 +82,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${calSans.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
       <head>
         {/* PWA Configuration */}
         <meta name="application-name" content="Vayo Vault" />
