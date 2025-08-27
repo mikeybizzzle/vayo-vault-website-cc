@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# Optimize for search engines
+Sitemap: https://vayovault.com/sitemap.xml
+
+# Block sensitive areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /_next/
+Disallow: /checkout/
+Disallow: /account/
+Disallow: /member/
+
+# Allow important pages
+Allow: /
+Allow: /deals
+Allow: /destinations
+Allow: /about
+Allow: /contact
+Allow: /pricing
+Allow: /blog
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
