@@ -1,0 +1,607 @@
+/**
+ * Vayo Vault Animation System
+ * 
+ * Micro-interactions and animations designed for:
+ * - Enhanced user engagement (inspired by Stripe's subtle interactions)
+ * - Performance-optimized transitions (200-300ms sweet spot)
+ * - Accessibility compliance (respects prefers-reduced-motion)
+ * - Mobile-friendly touch feedback
+ * - Trust-building through polished interactions
+ */
+
+:root {
+  /* ===== TIMING FUNCTIONS ===== */
+  --ease-linear: linear;
+  --ease-ease: ease;
+  --ease-ease-in: ease-in;
+  --ease-ease-out: ease-out;
+  --ease-ease-in-out: ease-in-out;
+  
+  /* Custom easing curves for premium feel */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);      /* Material Design standard */
+  --ease-snappy: cubic-bezier(0.25, 0.1, 0.25, 1);  /* Quick and responsive */
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Playful bounce */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Gentle spring */
+  
+  /* ===== DURATION SCALE ===== */
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;       /* Quick feedback */
+  --duration-normal: 200ms;     /* Standard interaction */
+  --duration-medium: 300ms;     /* Smooth transition */
+  --duration-slow: 500ms;       /* Dramatic effect */
+  --duration-slower: 750ms;     /* Loading states */
+  --duration-slowest: 1000ms;   /* Attention-grabbing */
+  
+  /* ===== ANIMATION DELAYS ===== */
+  --delay-0: 0ms;
+  --delay-75: 75ms;
+  --delay-100: 100ms;
+  --delay-150: 150ms;
+  --delay-200: 200ms;
+  --delay-300: 300ms;
+  --delay-500: 500ms;
+  --delay-700: 700ms;
+  --delay-1000: 1000ms;
+}
+
+/* ===== BASE TRANSITION CLASSES ===== */
+.transition-none { transition: none; }
+
+.transition-all {
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.transition-colors {
+  transition: color var(--duration-normal) var(--ease-smooth),
+              background-color var(--duration-normal) var(--ease-smooth),
+              border-color var(--duration-normal) var(--ease-smooth);
+}
+
+.transition-opacity {
+  transition: opacity var(--duration-normal) var(--ease-smooth);
+}
+
+.transition-transform {
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+.transition-shadow {
+  transition: box-shadow var(--duration-normal) var(--ease-smooth);
+}
+
+/* Duration utilities */
+.duration-instant { transition-duration: var(--duration-instant); }
+.duration-fast { transition-duration: var(--duration-fast); }
+.duration-normal { transition-duration: var(--duration-normal); }
+.duration-medium { transition-duration: var(--duration-medium); }
+.duration-slow { transition-duration: var(--duration-slow); }
+
+/* Easing utilities */
+.ease-linear { transition-timing-function: var(--ease-linear); }
+.ease-smooth { transition-timing-function: var(--ease-smooth); }
+.ease-snappy { transition-timing-function: var(--ease-snappy); }
+.ease-bounce { transition-timing-function: var(--ease-bounce); }
+.ease-spring { transition-timing-function: var(--ease-spring); }
+
+/* Delay utilities */
+.delay-0 { transition-delay: var(--delay-0); }
+.delay-75 { transition-delay: var(--delay-75); }
+.delay-100 { transition-delay: var(--delay-100); }
+.delay-150 { transition-delay: var(--delay-150); }
+.delay-200 { transition-delay: var(--delay-200); }
+.delay-300 { transition-delay: var(--delay-300); }
+
+/* ===== KEYFRAME ANIMATIONS ===== */
+
+/* Fade animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale animations */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Slide animations */
+@keyframes slideInUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% { transform: translate3d(0, 0, 0); }
+  40%, 43% { transform: translate3d(0, -0.5rem, 0); }
+  70% { transform: translate3d(0, -0.25rem, 0); }
+  90% { transform: translate3d(0, -0.125rem, 0); }
+}
+
+/* Subtle bounce for buttons */
+@keyframes bounceSubtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-0.125rem); }
+}
+
+/* Pulse animation for loading states */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Spin animation for loading */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Shake animation for errors */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-0.25rem); }
+  20%, 40%, 60%, 80% { transform: translateX(0.25rem); }
+}
+
+/* Wiggle animation for attention */
+@keyframes wiggle {
+  0%, 7% { transform: rotateZ(0); }
+  15% { transform: rotateZ(-15deg); }
+  20% { transform: rotateZ(10deg); }
+  25% { transform: rotateZ(-10deg); }
+  30% { transform: rotateZ(6deg); }
+  35% { transform: rotateZ(-4deg); }
+  40%, 100% { transform: rotateZ(0); }
+}
+
+/* Shimmer effect for loading */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+/* Heartbeat animation for favorites */
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+}
+
+/* Type-writer effect */
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Progress bar animation */
+@keyframes progressBar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ===== ANIMATION UTILITY CLASSES ===== */
+
+/* Fade animations */
+.animate-fade-in {
+  animation: fadeIn var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOut var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-fade-in-right {
+  animation: fadeInRight var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+/* Scale animations */
+.animate-scale-in {
+  animation: scaleIn var(--duration-normal) var(--ease-spring) forwards;
+}
+
+.animate-scale-out {
+  animation: scaleOut var(--duration-normal) var(--ease-smooth) forwards;
+}
+
+/* Slide animations */
+.animate-slide-in-up {
+  animation: slideInUp var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-slide-in-down {
+  animation: slideInDown var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+/* Continuous animations */
+.animate-bounce {
+  animation: bounceSubtle 2s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-ping {
+  animation: pulse 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Interaction animations */
+.animate-shake {
+  animation: shake var(--duration-slow) var(--ease-smooth);
+}
+
+.animate-wiggle {
+  animation: wiggle var(--duration-slower) var(--ease-smooth);
+}
+
+.animate-heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Loading animations */
+.animate-shimmer {
+  background: linear-gradient(90deg, 
+    var(--color-gray-200) 25%, 
+    var(--color-gray-100) 37%, 
+    var(--color-gray-200) 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+.animate-progress {
+  transform-origin: left;
+  animation: progressBar var(--duration-slow) var(--ease-smooth) forwards;
+}
+
+/* ===== HOVER INTERACTIONS ===== */
+
+/* Button hover effects */
+.hover-lift {
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-0.125rem);
+}
+
+.hover-scale {
+  transition: transform var(--duration-normal) var(--ease-smooth);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Card hover effects */
+.hover-card {
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.hover-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Link hover effects */
+.hover-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width var(--duration-normal) var(--ease-smooth);
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Background transitions */
+.hover-bg {
+  transition: background-color var(--duration-normal) var(--ease-smooth);
+}
+
+/* ===== FOCUS INTERACTIONS ===== */
+.focus-ring {
+  transition: all var(--duration-fast) var(--ease-smooth);
+}
+
+.focus-ring:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.focus-scale:focus {
+  transform: scale(1.02);
+}
+
+/* ===== MICRO-INTERACTIONS FOR TRAVEL BOOKING ===== */
+
+/* Price animation on hover */
+.price-highlight {
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.price-highlight:hover {
+  color: var(--color-secondary);
+  transform: scale(1.02);
+}
+
+/* Booking button interaction */
+.booking-button {
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.booking-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  transition: left var(--duration-slow) var(--ease-smooth);
+}
+
+.booking-button:hover::before {
+  left: 100%;
+}
+
+/* Favorite heart animation */
+.favorite-heart {
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.favorite-heart.active {
+  color: var(--color-error);
+  animation: heartbeat 0.6s ease-in-out;
+}
+
+/* Trust badge pulse */
+.trust-badge {
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.trust-badge:hover {
+  animation: pulse 1s ease-in-out;
+}
+
+/* Progress indicators */
+.progress-bar {
+  position: relative;
+  background: var(--color-gray-200);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 9999px;
+  transform-origin: left;
+  transition: transform var(--duration-medium) var(--ease-smooth);
+}
+
+/* Form field animations */
+.form-field {
+  position: relative;
+  transition: all var(--duration-normal) var(--ease-smooth);
+}
+
+.form-field input:focus + label {
+  transform: translateY(-1.5rem) scale(0.75);
+  color: var(--color-primary);
+}
+
+.form-field input:not(:placeholder-shown) + label {
+  transform: translateY(-1.5rem) scale(0.75);
+}
+
+/* Modal animations */
+.modal-overlay {
+  animation: fadeIn var(--duration-normal) var(--ease-smooth);
+}
+
+.modal-content {
+  animation: fadeInUp var(--duration-medium) var(--ease-spring);
+}
+
+/* Dropdown animations */
+.dropdown-enter {
+  animation: fadeInDown var(--duration-fast) var(--ease-smooth);
+}
+
+.dropdown-exit {
+  animation: fadeOut var(--duration-fast) var(--ease-smooth);
+}
+
+/* Toast notifications */
+.toast-enter {
+  animation: slideInRight var(--duration-medium) var(--ease-spring);
+}
+
+.toast-exit {
+  animation: slideInRight var(--duration-medium) var(--ease-smooth) reverse;
+}
+
+/* ===== STAGGERED ANIMATIONS ===== */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp var(--duration-medium) var(--ease-smooth) forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: var(--delay-0); }
+.stagger-children > *:nth-child(2) { animation-delay: var(--delay-100); }
+.stagger-children > *:nth-child(3) { animation-delay: var(--delay-200); }
+.stagger-children > *:nth-child(4) { animation-delay: var(--delay-300); }
+.stagger-children > *:nth-child(5) { animation-delay: var(--delay-400); }
+
+/* ===== ACCESSIBILITY ===== */
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Keep essential micro-interactions but make them instant */
+  .focus-ring:focus {
+    transition: none;
+  }
+  
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-card:hover {
+    transition: none;
+  }
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+/* GPU acceleration for animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize animations for 60fps */
+.smooth-animation {
+  will-change: transform, opacity;
+}
+
+.smooth-animation.done {
+  will-change: auto;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

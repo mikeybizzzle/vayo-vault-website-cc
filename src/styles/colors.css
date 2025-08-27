@@ -1,0 +1,235 @@
+/**
+ * Vayo Vault Color System
+ * 
+ * Based on research from Stripe, Netflix, Costco, and travel industry best practices.
+ * Colors optimized for:
+ * - Trust and credibility (deep blues)
+ * - Luxury accessibility (warm golds)
+ * - Clear feedback states
+ * - High contrast accessibility (WCAG AA compliant)
+ * - Mobile-first experience
+ */
+
+:root {
+  /* ===== PRIMARY COLORS ===== */
+  /* Deep Travel Blue - Trust & Reliability */
+  --color-primary: hsl(213, 94%, 40%);        /* #0066CC */
+  --color-primary-50: hsl(213, 100%, 97%);   /* #f0f7ff */
+  --color-primary-100: hsl(213, 100%, 93%);  /* #dbeafe */
+  --color-primary-200: hsl(213, 96%, 87%);   /* #bfdbfe */
+  --color-primary-300: hsl(213, 94%, 78%);   /* #93c5fd */
+  --color-primary-400: hsl(213, 94%, 68%);   /* #60a5fa */
+  --color-primary-500: hsl(213, 94%, 40%);   /* #0066cc */
+  --color-primary-600: hsl(213, 94%, 32%);   /* #0052a3 */
+  --color-primary-700: hsl(213, 84%, 24%);   /* #1e40af */
+  --color-primary-800: hsl(213, 88%, 20%);   /* #1e3a8a */
+  --color-primary-900: hsl(213, 78%, 16%);   /* #1d4ed8 */
+  --color-primary-950: hsl(213, 95%, 10%);   /* #0f172a */
+  
+  /* Warm Gold - Luxury & Value */
+  --color-secondary: hsl(38, 92%, 58%);       /* #FFB800 */
+  --color-secondary-50: hsl(38, 100%, 97%);  /* #fefbeb */
+  --color-secondary-100: hsl(38, 100%, 93%); /* #fef3c7 */
+  --color-secondary-200: hsl(38, 97%, 85%);  /* #fde68a */
+  --color-secondary-300: hsl(38, 94%, 76%);  /* #fcd34d */
+  --color-secondary-400: hsl(38, 92%, 66%);  /* #fbbf24 */
+  --color-secondary-500: hsl(38, 92%, 58%);  /* #ffb800 */
+  --color-secondary-600: hsl(38, 87%, 49%);  /* #f59e0b */
+  --color-secondary-700: hsl(38, 85%, 39%);  /* #d97706 */
+  --color-secondary-800: hsl(38, 82%, 31%);  /* #b45309 */
+  --color-secondary-900: hsl(38, 78%, 25%);  /* #92400e */
+  --color-secondary-950: hsl(38, 84%, 15%);  /* #451a03 */
+  
+  /* ===== SEMANTIC COLORS ===== */
+  /* Success Green - Savings & Confirmation */
+  --color-success: hsl(158, 64%, 35%);       /* #047857 */
+  --color-success-50: hsl(158, 76%, 96%);    /* #ecfdf5 */
+  --color-success-100: hsl(158, 75%, 91%);   /* #d1fae5 */
+  --color-success-200: hsl(158, 69%, 82%);   /* #a7f3d0 */
+  --color-success-300: hsl(158, 64%, 70%);   /* #6ee7b7 */
+  --color-success-400: hsl(158, 64%, 58%);   /* #34d399 */
+  --color-success-500: hsl(158, 64%, 52%);   /* #10b981 */
+  --color-success-600: hsl(158, 64%, 42%);   /* #059669 */
+  --color-success-700: hsl(158, 64%, 35%);   /* #047857 */
+  --color-success-800: hsl(158, 61%, 29%);   /* #065f46 */
+  --color-success-900: hsl(158, 60%, 24%);   /* #064e3b */
+  --color-success-950: hsl(158, 69%, 14%);   /* #022c22 */
+  
+  /* Warning Orange - Caution & Attention */
+  --color-warning: hsl(43, 96%, 56%);        /* #f59e0b */
+  --color-warning-50: hsl(43, 100%, 96%);    /* #fffbeb */
+  --color-warning-100: hsl(43, 100%, 90%);   /* #fef3c7 */
+  --color-warning-200: hsl(43, 96%, 80%);    /* #fde68a */
+  --color-warning-300: hsl(43, 96%, 69%);    /* #fcd34d */
+  --color-warning-400: hsl(43, 96%, 62%);    /* #fbbf24 */
+  --color-warning-500: hsl(43, 96%, 56%);    /* #f59e0b */
+  --color-warning-600: hsl(43, 93%, 47%);    /* #d97706 */
+  --color-warning-700: hsl(43, 88%, 37%);    /* #b45309 */
+  --color-warning-800: hsl(43, 84%, 30%);    /* #92400e */
+  --color-warning-900: hsl(43, 84%, 25%);    /* #78350f */
+  --color-warning-950: hsl(43, 87%, 14%);    /* #451a03 */
+  
+  /* Error Red - Validation & Critical Actions */
+  --color-error: hsl(0, 84%, 50%);           /* #dc2626 */
+  --color-error-50: hsl(0, 86%, 97%);        /* #fef2f2 */
+  --color-error-100: hsl(0, 93%, 94%);       /* #fee2e2 */
+  --color-error-200: hsl(0, 96%, 89%);       /* #fecaca */
+  --color-error-300: hsl(0, 94%, 82%);       /* #fca5a5 */
+  --color-error-400: hsl(0, 91%, 71%);       /* #f87171 */
+  --color-error-500: hsl(0, 84%, 60%);       /* #ef4444 */
+  --color-error-600: hsl(0, 84%, 53%);       /* #dc2626 */
+  --color-error-700: hsl(0, 77%, 44%);       /* #b91c1c */
+  --color-error-800: hsl(0, 70%, 35%);       /* #991b1b */
+  --color-error-900: hsl(0, 63%, 31%);       /* #7f1d1d */
+  --color-error-950: hsl(0, 75%, 19%);       /* #450a0a */
+  
+  /* ===== NEUTRAL COLORS ===== */
+  /* Cool Gray Scale - Modern & Professional */
+  --color-gray-50: hsl(210, 40%, 98%);       /* #f9fafb */
+  --color-gray-100: hsl(210, 40%, 96%);      /* #f3f4f6 */
+  --color-gray-200: hsl(214, 32%, 91%);      /* #e5e7eb */
+  --color-gray-300: hsl(213, 27%, 84%);      /* #d1d5db */
+  --color-gray-400: hsl(218, 11%, 65%);      /* #9ca3af */
+  --color-gray-500: hsl(220, 9%, 46%);       /* #6b7280 */
+  --color-gray-600: hsl(215, 14%, 34%);      /* #4b5563 */
+  --color-gray-700: hsl(217, 19%, 27%);      /* #374151 */
+  --color-gray-800: hsl(215, 28%, 17%);      /* #1f2937 */
+  --color-gray-900: hsl(221, 39%, 11%);      /* #111827 */
+  --color-gray-950: hsl(224, 71%, 4%);       /* #030712 */
+  
+  /* ===== SURFACE COLORS ===== */
+  /* Light Theme */
+  --color-background: hsl(0, 0%, 100%);      /* #ffffff */
+  --color-surface: hsl(210, 40%, 98%);       /* #f9fafb */
+  --color-surface-hover: hsl(210, 40%, 96%); /* #f3f4f6 */
+  --color-surface-active: hsl(214, 32%, 91%);/* #e5e7eb */
+  
+  /* Card & Component Backgrounds */
+  --color-card: hsl(0, 0%, 100%);            /* #ffffff */
+  --color-card-hover: hsl(210, 40%, 98%);    /* #f9fafb */
+  
+  /* ===== TEXT COLORS ===== */
+  --color-text-primary: hsl(221, 39%, 11%);    /* #111827 */
+  --color-text-secondary: hsl(215, 14%, 34%);  /* #4b5563 */
+  --color-text-tertiary: hsl(220, 9%, 46%);    /* #6b7280 */
+  --color-text-disabled: hsl(218, 11%, 65%);   /* #9ca3af */
+  --color-text-inverse: hsl(0, 0%, 100%);      /* #ffffff */
+  
+  /* ===== BORDER COLORS ===== */
+  --color-border: hsl(214, 32%, 91%);        /* #e5e7eb */
+  --color-border-light: hsl(210, 40%, 96%);  /* #f3f4f6 */
+  --color-border-strong: hsl(213, 27%, 84%); /* #d1d5db */
+  --color-border-focus: var(--color-primary-500);
+  
+  /* ===== INTERACTIVE COLORS ===== */
+  --color-link: var(--color-primary-600);
+  --color-link-hover: var(--color-primary-700);
+  --color-link-visited: var(--color-primary-800);
+  
+  /* ===== OVERLAY COLORS ===== */
+  --color-overlay: hsla(221, 39%, 11%, 0.5);     /* Semi-transparent black */
+  --color-backdrop: hsla(221, 39%, 11%, 0.25);   /* Light backdrop */
+  
+  /* ===== TRAVEL-SPECIFIC COLORS ===== */
+  /* Destination & Experience Colors */
+  --color-beach: hsl(197, 71%, 73%);         /* #87ceeb - Sky Blue */
+  --color-mountain: hsl(120, 25%, 40%);      /* #5f8a5f - Forest Green */
+  --color-city: hsl(240, 12%, 20%);          /* #2f2f3a - Urban Gray */
+  --color-luxury: hsl(38, 92%, 58%);         /* Gold for luxury experiences */
+  --color-adventure: hsl(14, 100%, 57%);     /* #ff5722 - Adventure Orange */
+  
+  /* Trust Indicators */
+  --color-verified: var(--color-success-500);
+  --color-bestseller: var(--color-secondary-500);
+  --color-member-exclusive: var(--color-primary-600);
+  
+  /* ===== DARK THEME OVERRIDES ===== */
+  .dark {
+    --color-background: hsl(224, 71%, 4%);       /* #030712 */
+    --color-surface: hsl(221, 39%, 11%);         /* #111827 */
+    --color-surface-hover: hsl(215, 28%, 17%);   /* #1f2937 */
+    --color-surface-active: hsl(217, 19%, 27%);  /* #374151 */
+    
+    --color-card: hsl(221, 39%, 11%);            /* #111827 */
+    --color-card-hover: hsl(215, 28%, 17%);      /* #1f2937 */
+    
+    --color-text-primary: hsl(210, 40%, 98%);    /* #f9fafb */
+    --color-text-secondary: hsl(214, 32%, 91%);  /* #e5e7eb */
+    --color-text-tertiary: hsl(213, 27%, 84%);   /* #d1d5db */
+    --color-text-disabled: hsl(218, 11%, 65%);   /* #9ca3af */
+    
+    --color-border: hsl(217, 19%, 27%);          /* #374151 */
+    --color-border-light: hsl(215, 28%, 17%);    /* #1f2937 */
+    --color-border-strong: hsl(215, 14%, 34%);   /* #4b5563 */
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+/* Background Colors */
+.bg-primary { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-success { background-color: var(--color-success); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-error { background-color: var(--color-error); }
+.bg-surface { background-color: var(--color-surface); }
+.bg-card { background-color: var(--color-card); }
+
+/* Text Colors */
+.text-primary-color { color: var(--color-primary); }
+.text-secondary-color { color: var(--color-secondary); }
+.text-success { color: var(--color-success); }
+.text-warning { color: var(--color-warning); }
+.text-error { color: var(--color-error); }
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+
+/* Border Colors */
+.border-primary { border-color: var(--color-primary); }
+.border-secondary { border-color: var(--color-secondary); }
+.border-default { border-color: var(--color-border); }
+.border-light { border-color: var(--color-border-light); }
+.border-strong { border-color: var(--color-border-strong); }
+
+/* Travel-specific utilities */
+.bg-gradient-travel {
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-secondary-500) 100%);
+}
+
+.bg-gradient-luxury {
+  background: linear-gradient(135deg, var(--color-secondary-400) 0%, var(--color-secondary-600) 100%);
+}
+
+.bg-gradient-trust {
+  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-600) 100%);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-secondary-400) 0%, var(--color-secondary-600) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: hsl(213, 100%, 25%);
+    --color-border: hsl(0, 0%, 0%);
+    --color-text-primary: hsl(0, 0%, 0%);
+  }
+  
+  .dark {
+    --color-primary: hsl(213, 100%, 75%);
+    --color-text-primary: hsl(0, 0%, 100%);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .bg-gradient-travel,
+  .bg-gradient-luxury,
+  .bg-gradient-trust {
+    background: var(--color-primary);
+  }
+}
